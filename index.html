@@ -22,8 +22,11 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label for="validationCustom02" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="validationCustom02" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
             </div>
             <button type="submit" class="btn btn-outline-success position-relative bottom-0 start-50 translate-middle-x">Acceder</button>
         </form>
@@ -31,7 +34,30 @@
 
     </main>
 
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <script>
+        (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+    </script>
+     
 </body>
 </html>
